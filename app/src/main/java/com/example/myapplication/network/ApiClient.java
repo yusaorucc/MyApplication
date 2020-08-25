@@ -7,7 +7,7 @@ public class ApiClient {
     public static <S> S createService(Class<S> serviceClass) {
         Retrofit.Builder builder =
                 new Retrofit.Builder()
-                        .baseUrl("https://randevuapi20200816175309.azurewebsites.net/")
+                        .baseUrl("https://randevuapi20200816175309.azurewebsites.net/api/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(new OkHttpClient());
         Retrofit retrofit = builder.build();
