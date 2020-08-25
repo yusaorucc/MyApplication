@@ -16,9 +16,6 @@ public class Randevu implements Serializable {
     @SerializedName("donemId")
     @Expose
     private long donemId;
-    public String getLat() {
-        return lat;
-    }
     public void setRandevuId(long randevuId) {
         this.randevuId = randevuId;
     }
