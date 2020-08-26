@@ -35,20 +35,20 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         recyclerView =  findViewById(R.id.recyclerView);
         swipeRefreshLayout= findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setOnRefreshListener(this::onRefresh);
-        /*adapter = new BikeStationAdapter(this, list, new ItemClickListener<BikeStation>() {
+        adapter = new BikeStationAdapter(this, list, new ItemClickListener<BikeStation>() {
             @Override
             public void onItemClick(BikeStation station, int position) {
                 startActivity(new Intent(MainActivity.this, DetailActivity.class).putExtra("model", station));
             }
         });
-        recyclerView.setAdapter(adapter);*/
+        recyclerView.setAdapter(adapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         getData();
     }
     private void getData() {
-        /*services = ApiClient.createService(Services.class);
+        services = ApiClient.createService(Services.class);
         Call<List<BikeStation>> call = services.getBikeStation();
         call.enqueue(new Callback<List<BikeStation>>() {
             @Override
@@ -66,34 +66,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 if(swipeRefreshLayout.isRefreshing())
                     swipeRefreshLayout.setRefreshing(false);
             }
-        });*/
-        services = ApiClient.createService(Services.class);
-        Call<List<Randevu>> call = services.getRandevular();
-        call.enqueue(new Callback<List<Randevu>>() {
-            @Override
-            public void onResponse(Call<List<Randevu>> call, Response<List<Randevu>> response) {
-                if(swipeRefreshLayout.isRefreshing())
-                    swipeRefreshLayout.setRefreshing(false);
-                assert response.body() != null;
-                for (Randevu randevu:response.body()) {
-                    AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-                    alertDialog.setTitle("Randevu");
-                    alertDialog.setMessage("Randevu Id: " + randevu.randevuId);
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    alertDialog.show();
-                }
-            }
-            @Override
-            public void onFailure(Call<List<BikeStation>> call, Throwable t) {
-                if(swipeRefreshLayout.isRefreshing())
-                    swipeRefreshLayout.setRefreshing(false);
-            }
         });
-        
     }
    /* public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();

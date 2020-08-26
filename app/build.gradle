@@ -15,12 +15,12 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://randevuapi20200816175309.azurewebsites.net/api/\"")
+            buildConfigField("String", "BASE_URL", "\"https://kayseriulasim.com/\"")
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("String", "BASE_URL", "\"https://randevuapi20200816175309.azurewebsites.net/api/\"")
+            buildConfigField("String", "BASE_URL", "\"https://kayseriulasim.com/\"")
         }
     }
     compileOptions {
