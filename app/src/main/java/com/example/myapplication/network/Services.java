@@ -15,6 +15,19 @@ import retrofit2.http.Path;
 
 public interface Services {
     
+    // Register user
+    @POST("authenticate/register")
+    Call<RegisterRequest> createRegisterRequest(@Body RegisterRequest registerUser)
+        
+    // Register admin
+    //@POST("authenticate/register-admin")
+    //Call<RegisterRequestAdmin> createRegisterRequestAdmin(@Body RegisterRequestAdmin registerAdmin)
+        
+    // Login
+    @POST("api/authenticate/login")
+    Call<LoginRequest> createLoginRequest(@Body LoginRequest loginRequest)
+    
+        
     // Randevu
     @GET("randevu")
     Call<List<Randevu>> getRandevular();
