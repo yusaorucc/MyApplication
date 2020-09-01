@@ -12,8 +12,11 @@ public class Randevu implements Serializable {
     private long randevuId;
     @SerializedName("tarih")
     @Expose
-    private LocalDate tarih;
+    private String tarih;
     @SerializedName("donemId")
+    @Expose
+    public String Isim;
+    @SerializedName("Isim")
     @Expose
     private long donemId;
     public void setRandevuId(long randevuId) {
@@ -22,10 +25,10 @@ public class Randevu implements Serializable {
     public long getRandevuId() {
         return randevuId;
     }
-    public void setTarih(LocalDate tarih) {
+    public void setTarih(String tarih) {
         this.tarih = tarih;
     }
-    public LocalDate getTarih() {
+    public String getTarih() {
         return tarih;
     }
     public void setDonemId(long donemId) {
@@ -33,5 +36,8 @@ public class Randevu implements Serializable {
     }
     public long getDonemId() {
         return donemId;
+    }
+    public String getIsim(){
+        return Isim;
     }
 }

@@ -1,21 +1,23 @@
 package com.example.myapplication.ui;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.example.myapplication.BikeStation;
 import com.example.myapplication.BikeStationAdapter;
 import com.example.myapplication.ItemClickListener;
 import com.example.myapplication.R;
+import com.example.myapplication.Randevu;
+import com.example.myapplication.model.DonemModel;
 import com.example.myapplication.network.ApiClient;
 import com.example.myapplication.network.Services;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
@@ -75,25 +77,40 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 if(swipeRefreshLayout.isRefreshing())
                     swipeRefreshLayout.setRefreshing(false);
                 assert response.body() != null;
-                for (Randevu randevu:response.body()) {
-                    AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-                    alertDialog.setTitle("Randevu");
-                    alertDialog.setMessage("Randevu Id: " + randevu.randevuId);
-                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    alertDialog.show();
-                }
+                BikeStationAdapter adapter = new BikeStationAdapter(getApplicationContext(), response.body(), new ItemClickListener() {
+                    @Override
+                    public void onItemClick(Object station, int position) {
+
+                    }
+                });
+                recyclerView.setAdapter(adapter);
             }
+
+
+
             @Override
-            public void onFailure(Call<List<BikeStation>> call, Throwable t) {
+            public void onFailure(Call<List<Randevu>> call, Throwable t) {
                 if(swipeRefreshLayout.isRefreshing())
                     swipeRefreshLayout.setRefreshing(false);
             }
         });
-        
+       // aRequest a = new aREquest("yusa","1234")
+        //Call<List<DonemModel>> donem = services.getDonem(a);
+        Call<List<DonemModel>> donem = services.getDonem();
+        donem.enqueue(new Callback<List<DonemModel>>() {
+            @Override
+            public void onResponse(Call<List<DonemModel>> call, Response<List<DonemModel>> response) {
+
+            }
+
+
+
+            @Override
+            public void onFailure(Call<List<DonemModel>> call, Throwable t) {
+                if(swipeRefreshLayout.isRefreshing())
+                    swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
    /* public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
