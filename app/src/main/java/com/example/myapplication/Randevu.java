@@ -45,11 +45,4 @@ public class Randevu implements Serializable {
     public String getIsim(){
         return Isim;
     }
-    
-    public void setDonem(Donem donem) {
-        this.donem = donem;
-    }
-    public Donem getDonem() {
-        return donem;
-    }
 }
