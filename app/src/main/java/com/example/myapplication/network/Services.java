@@ -71,18 +71,18 @@ public interface Services {
     
     // Yonetici
     @GET("yonetici")
-    Call<List<Yonetici>> getYoneticiler();
+    Call<List<YoneticiModel>> getYoneticiler();
     
     @GET("yonetici/{id}")
-    Call<Yonetici> getYonetici(@Path("id") int yoneticiId);
+    Call<YoneticiModel> getYonetici(@Path("id") int yoneticiId);
     
     @POST("yonetici")
-    Call<Yonetici> createYonetici(@Body Yonetici yonetici);
+    Call<YoneticiModel> createYonetici(@Body YoneticiModel yonetici);
     
     @DELETE("yonetici/{id}")
     Call<ResponseBody> deleteYonetici(@Path("id") int yoneticiId);
     
     @PUT("yonetici/{id}")
-    Call<ResponseBody> updateYonetici(@Path("id") int yoneticiId, @Body Yonetici yonetici);
-
+    Call<ResponseBody> updateYonetici(@Path("id") int yoneticiId, @Body YoneticiModel yonetici);
+    
 }
