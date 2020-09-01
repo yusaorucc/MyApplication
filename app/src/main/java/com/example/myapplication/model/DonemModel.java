@@ -2,6 +2,7 @@ package com.example.myapplication.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.time;
 
 public class DonemModel {
 
@@ -10,10 +11,10 @@ public class DonemModel {
     public String Isim;
     @SerializedName("Baslangic")
     @Expose
-    public Integer Baslangic;
+    public LocalDate Baslangic;
     @SerializedName("Bitis")
     @Expose
-    public Integer Bitis;
+    public LocalDate Bitis;
 
     public String getIsim() {
         return Isim;
@@ -23,19 +24,19 @@ public class DonemModel {
         Isim = isim;
     }
 
-    public Integer getBaslangic() {
+    public LocalDate getBaslangic() {
         return Baslangic;
     }
 
-    public void setBaslangic(Integer baslangic) {
+    public void setBaslangic(LocalDate baslangic) {
         Baslangic = baslangic;
     }
 
-    public Integer getBitis() {
+    public LocalDate getBitis() {
         return Bitis;
     }
 
-    public void setBitis(Integer bitis) {
+    public void setBitis(LocalDate bitis) {
         Bitis = bitis;
     }
 }
