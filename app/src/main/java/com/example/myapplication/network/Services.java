@@ -17,15 +17,15 @@ public interface Services {
     
     // Register user
     @POST("authenticate/register")
-    Call<RegisterRequest> createRegisterRequest(@Body RegisterRequest registerRequest)
+    Call<RegisterRequest> createRegisterRequest(@Body RegisterRequest registerRequest);
         
     // Register admin
     @POST("authenticate/register-admin")
-    Call<RegisterRequest> createRegisterRequestAdmin(@Body RegisterRequest registerRequest)
+    Call<RegisterRequest> createRegisterRequestAdmin(@Body RegisterRequest registerRequest);
         
     // Login
     @POST("authenticate/login")
-    Call<LoginRequest> createLoginRequest(@Body LoginRequest loginRequest)
+    Call<LoginRequest> createLoginRequest(@Body LoginRequest loginRequest);
     
         
     // Randevu
