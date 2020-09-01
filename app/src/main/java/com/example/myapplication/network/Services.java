@@ -47,6 +47,9 @@ public interface Services {
     @PUT("randevu/{id}")
     Call<ResponseBody> updateRandevu(@Path("id") int randevuId, @Body Randevu randevu);
     
+    @GET("randevu/{id}/donem")
+    Call<Donem> getRandevuDonem(@Path("id") int randevuId);
+    
     
     // Ogrenci
     @GET("ogrenci")
@@ -63,6 +66,12 @@ public interface Services {
     
     @PUT("ogrenci/{id}")
     Call<ResponseBody> updateOgrenci(@Path("id") int ogrenciId, @Body OgrenciModel ogrenci);
+    
+    @GET("ogrenci/{id}/donem")
+    Call<OgrenciModel> getOgrenciDonem(@Path("id") int ogrenciId);
+    
+    @GET("OgrenciModel/{id}/randevu")
+    Call<Donem> getOgrenciRandevu(@Path("id") int ogrenciId);
     
     
     // Donem
