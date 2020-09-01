@@ -17,14 +17,14 @@ public interface Services {
     
     // Register user
     @POST("authenticate/register")
-    Call<RegisterRequest> createRegisterRequest(@Body RegisterRequest registerUser)
+    Call<RegisterRequest> createRegisterRequest(@Body RegisterRequest registerRequest)
         
     // Register admin
-    //@POST("authenticate/register-admin")
-    //Call<RegisterRequestAdmin> createRegisterRequestAdmin(@Body RegisterRequestAdmin registerAdmin)
+    @POST("authenticate/register-admin")
+    Call<RegisterRequest> createRegisterRequestAdmin(@Body RegisterRequest registerRequest)
         
     // Login
-    @POST("api/authenticate/login")
+    @POST("authenticate/login")
     Call<LoginRequest> createLoginRequest(@Body LoginRequest loginRequest)
     
         
