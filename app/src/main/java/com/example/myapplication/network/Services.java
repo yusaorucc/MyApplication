@@ -38,6 +38,9 @@ public interface Services {
     @GET("randevu?guncel=true")
     Call<List<Randevu>> getRandevularGuncel();
     
+    @GET("randevu?guncel=true&bos=true")
+    Call<List<Randevu>> getRandevularGuncelBos();
+    
     @POST("randevu")
     Call<Randevu> createRandevu(@Body Randevu randevu);
     
