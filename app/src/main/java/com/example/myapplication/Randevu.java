@@ -19,6 +19,11 @@ public class Randevu implements Serializable {
     @SerializedName("Isim")
     @Expose
     private long donemId;
+    
+    @SerializedName("Donem")
+    @Expose
+    private DonemModel donem;
+    
     public void setRandevuId(long randevuId) {
         this.randevuId = randevuId;
     }

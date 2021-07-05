@@ -3,14 +3,11 @@ package com.example.myapplication.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class RegisterRequest {
+public class LoginRequest {
 
     @SerializedName("Username")
     @Expose
     public String Username;
-    @SerializedName("Email")
-    @Expose
-    public String Email;
     @SerializedName("Password")
     @Expose
     public String Password;
@@ -21,14 +18,6 @@ public class RegisterRequest {
 
     public void setUsername(String username) {
         Username = username;
-    }
-  
-    public String getEmail() {
-        return Email;
-    }
-
-    public void setEmail(String email) {
-        Email = email;
     }
   
     public String getPassword() {
